@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // set player to default start position
         // position will be mid screen
+        // -3.38 on y 
+
         
     }
 
