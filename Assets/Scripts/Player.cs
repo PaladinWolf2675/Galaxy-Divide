@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         // set player starting position = new position (0, 0, 0)
-        //
+        // always use new Vector3
         transform.position = new Vector3(0, 0, 0);
     }
 
