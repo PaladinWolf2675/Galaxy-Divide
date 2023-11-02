@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // requirements for variables
+    // public or private reference
+    // data type (int, float, bool, string)
+    // (optional) value assigned
+    // public variables can be modified inside Unity inspector
+    // use underscore for private variables ex private float _speed = 1.0f;
+    // if private variables need to be modified use [SerializeField] above variable in the code
+    [SerializeField]
+    private float _speed = 5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +27,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Make player move at normal speed.
-        // Multiply Vector3 By Unity unit by time.deltatime(real time)
-        transform.Translate(Vector3.right * 5 * Time.deltaTime);
+        // Multiply Vector3 By 5 by time.deltatime(real time)
+        transform.Translate(Vector3.right * _speed * Time.deltaTime);
     }
 }
