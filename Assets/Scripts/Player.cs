@@ -41,13 +41,18 @@ public class Player : MonoBehaviour
 
         // Allow for User input on vertical axis
         float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
         
         
         // Make player move at normal speed.
         // Multiply Vector3 By _speed by time.deltatime(real time)
         // Add in axis variables for user input
-        transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
-        transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
+        // new Vector3(0, 0, 0);  (x, y, z)
+        // Vector3 can be used as variable type- Vector3 direction = new vector3(horizontalInput, verticalInput, 0);
+        //transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
+        //transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);
+        transform.Translate(direction * _speed * Time.deltaTime);
 
 
        
