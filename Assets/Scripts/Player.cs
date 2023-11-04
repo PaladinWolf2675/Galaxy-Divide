@@ -25,7 +25,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-          // Allow for User input on horizontal axis
+        CalculateMovement();
+    }
+
+    void CalculateMovement()
+    {
+             // Allow for User input on horizontal axis
        float horizontalInput = Input.GetAxis("Horizontal");
 
         // Allow for User input on vertical axis
@@ -37,19 +42,9 @@ public class Player : MonoBehaviour
 
         transform.Translate(direction * _speed * Time.deltaTime);
 
-        // if player position on y is greater than 0
-        // y position = 0
-        // else if player position on y is less than -3.9f
-        // y position = -3.9f
+         // Clamp value in Vector3 will restrict movement on y axis
 
-        if (transform.position.y >= 0)
-        {
-             transform.position = new Vector3(transform.position.x, 0, 0);
-        }
-        else if (transform.position.y <= -3.9f)
-        {
-            transform.position = new Vector3(transform.position.x, -3.9f, 0);
-        }
+        transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.9f, 0), 0);
 
         // if player position on x is greater than 12.5f
         // x position = -12.5f
@@ -64,9 +59,5 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(12.5f, transform.position.y, 0);
         }
-
-
-
-       
     }
 }
