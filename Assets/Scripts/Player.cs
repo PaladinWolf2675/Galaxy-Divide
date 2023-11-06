@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown("space"))
         {
            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+           
         }
     }
 
