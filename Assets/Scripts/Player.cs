@@ -34,6 +34,8 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown("space"))
         {
+           //The transform position and Quaternion identity 
+           //Are used so the laser will fly on the Y axis
            Instantiate(_laserPrefab, transform.position, Quaternion.identity);
            
         }
