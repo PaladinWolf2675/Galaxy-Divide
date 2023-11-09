@@ -36,7 +36,8 @@ public class Player : MonoBehaviour
         {
            //The transform position and Quaternion identity 
            //Are used so the laser will fly on the Y axis
-           Instantiate(_laserPrefab, transform.position, Quaternion.identity);
+           //The new vector3 will add an offset to laser spawn point
+           Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
            
         }
     }
