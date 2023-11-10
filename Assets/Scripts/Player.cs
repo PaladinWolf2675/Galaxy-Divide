@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     private float _speed = 5f;
     [SerializeField]
     private GameObject _laserPrefab;
+    [SerializeField]
+    private float _fireRate = 0.5f;
+    [SerializeField]
+    private float _nextFire = 0.0f;
 
     
 
@@ -32,11 +36,12 @@ public class Player : MonoBehaviour
         //if Space key is pressed 
         // Spawn Laser
 
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space") && Time.time > _nextFire)
         {
            //The transform position and Quaternion identity 
            //Are used so the laser will fly on the Y axis
            //The new vector3 will add an offset to laser spawn point
+           _nextFire = Time.time + _fireRate;
            Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
            
         }
