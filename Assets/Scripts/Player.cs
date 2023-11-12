@@ -32,20 +32,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
-
-        //if Space key is pressed 
-        // Spawn Laser
-
         if(Input.GetKeyDown("space") && Time.time > _nextFire)
         {
-           //The transform position and Quaternion identity 
-           //Are used so the laser will fly on the Y axis
-           //The new vector3 will add an offset to laser spawn point
-           // _nextFire = Time.time + _fireRate; will control cooldown
-           _nextFire = Time.time + _fireRate;
-           Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
-           
+            FireLaser();
         }
+
     }
 
     void CalculateMovement()
@@ -79,5 +70,11 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(12.5f, transform.position.y, 0);
         }
+    }
+
+    void FireLaser()
+    {
+          _nextFire = Time.time + _fireRate;
+           Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
     }
 }
