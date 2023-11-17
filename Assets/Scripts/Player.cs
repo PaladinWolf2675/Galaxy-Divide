@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private float _fireRate = 0.5f;
     [SerializeField]
     private float _nextFire = 0.0f;
+    [SerializeField]
+    private int _lives = 3;
 
     
 
@@ -76,5 +78,19 @@ public class Player : MonoBehaviour
     {
           _nextFire = Time.time + _fireRate;
            Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+    }
+
+    public void Damage()
+    {
+        _lives--;
+
+        //check if dead
+        //if dead 
+        //destroy us
+
+        if (_lives < 1)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
