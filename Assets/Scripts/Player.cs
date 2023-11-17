@@ -88,6 +88,10 @@ public class Player : MonoBehaviour
         //if dead 
         //destroy us
 
+        // issue with code 
+        // lives value defaults to 1 at game start
+        // cause unknown
+
         if (_lives < 1)
         {
             Destroy(this.gameObject);
