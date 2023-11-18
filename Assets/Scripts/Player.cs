@@ -59,10 +59,7 @@ public class Player : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.9f, 0), 0);
 
-        // if player position on x is greater than 12.5f
-        // x position = -12.5f
-        // else if player position on x is less than -12.5f
-        // x position = 12.5f
+ 
 
         if (transform.position.x >= 12.5f)
         {
@@ -83,14 +80,6 @@ public class Player : MonoBehaviour
     public void Damage()
     {
         _lives--;
-
-        //check if dead
-        //if dead 
-        //destroy us
-
-        // issue with code 
-        // lives value defaults to 1 at game start
-        // cause unknown
 
         if (_lives < 1)
         {
