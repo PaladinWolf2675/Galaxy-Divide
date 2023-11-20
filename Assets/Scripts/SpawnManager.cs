@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _enemyPrefab;
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(SpawnRoutine());
     }
 
     // Update is called once per frame
@@ -15,4 +17,22 @@ public class SpawnManager : MonoBehaviour
     {
         
     }
+
+    //spawn game objects every 5 seconds
+    //Create a coroutine of type IEnumerator -- Yield Events
+    //while loop -- if executed improperly will crash computer
+
+    IEnumerator SpawnRoutine()
+    {
+
+        while (true)
+        {
+           Vector3 posToSpawn = new Vector3(Random.Range(-9f, 9f), 9f, 0); 
+           Instantiate(_enemyPrefab, posToSpawn, Quaternion.identity);
+           yield return new WaitForSeconds(2.5f);
+
+        }  
+    }
+
+
 }
