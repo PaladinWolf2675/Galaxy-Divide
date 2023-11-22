@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private float _nextFire = 0.0f;
     [SerializeField]
     private int _lives = 3;
+    private SpawnManager _spawnManager;
 
     
 
@@ -26,6 +27,13 @@ public class Player : MonoBehaviour
     {
        
         transform.position = new Vector3(0, 0, 0);
+        //find the object Get the component
+        _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+
+        if (_spawnManager == null)
+        {
+            Debug.LogError("The Spawn Manager is NULL.");
+        }
 
         
     }
@@ -83,6 +91,7 @@ public class Player : MonoBehaviour
 
         if (_lives < 1)
         {
+           _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }
