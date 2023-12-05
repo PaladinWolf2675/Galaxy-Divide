@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     private SpawnManager _spawnManager;
 
+    //variable for isTripleShotEnabled
+
     
 
    
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
-        if(Input.GetKeyDown("space") && Time.time > _nextFire)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _nextFire)
         {
             FireLaser();
         }
@@ -83,6 +85,10 @@ public class Player : MonoBehaviour
     {
           _nextFire = Time.time + _fireRate;
            Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
+
+           
+           
+           // instantiate 3 lasers (triple shot powerup)
     }
 
     public void Damage()
