@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     private SpawnManager _spawnManager;
 
-    //variable for isTripleShotEnabled
+    //bool variable for isTripleShotEnabled
 
     
 
@@ -86,9 +86,14 @@ public class Player : MonoBehaviour
           _nextFire = Time.time + _fireRate;
            Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
 
+           //if space key pressed
+           //if triple shot is true
+           //fire three lasers (triple shot prefab)
+
+           //else fire 1 laser
+
            
-           
-           // instantiate 3 lasers (triple shot powerup)
+           // instantiate 3 lasers (triple shot prefab)
     }
 
     public void Damage()
