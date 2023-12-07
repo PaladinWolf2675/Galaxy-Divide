@@ -10,14 +10,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
+    private GameObject _tripleShotPrefab;
+    [SerializeField]
     private float _fireRate = 0.5f;
     [SerializeField]
     private float _nextFire = 0.0f;
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
-
-    //bool variable for isTripleShotEnabled
+    [SerializeField]
+   private bool _isTripleShotEnabled = false;
 
     
 
@@ -84,11 +86,20 @@ public class Player : MonoBehaviour
     void FireLaser()
     {
           _nextFire = Time.time + _fireRate;
-           Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
 
-           //if space key pressed
+          if (_isTripleShotEnabled == true)
+        {
+           Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
+        }
+          else
+        {
+            Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
+        }
+           
+
+           //if space key pressed 
            //if triple shot is true
-           //fire three lasers (triple shot prefab)
+                //fire three lasers (triple shot prefab)
 
            //else fire 1 laser
 
