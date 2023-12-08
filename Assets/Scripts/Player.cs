@@ -95,16 +95,7 @@ public class Player : MonoBehaviour
         {
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
         }
-           
 
-           //if space key pressed 
-           //if triple shot is true
-                //fire three lasers (triple shot prefab)
-
-           //else fire 1 laser
-
-           
-           // instantiate 3 lasers (triple shot prefab)
     }
 
     public void Damage()
