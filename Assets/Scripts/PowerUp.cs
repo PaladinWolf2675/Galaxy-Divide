@@ -33,6 +33,7 @@ public class PowerUp : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            //comunicate with player script
             Destroy(this.gameObject);
         }
     }
