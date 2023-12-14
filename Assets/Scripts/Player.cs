@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private int _lives = 3;
     private SpawnManager _spawnManager;
     [SerializeField]
-   private bool _isTripleShotEnabled = false;
+   private bool _isTripleShotActive = false;
 
     
 
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
     {
           _nextFire = Time.time + _fireRate;
 
-          if (_isTripleShotEnabled == true)
+          if (_isTripleShotActive == true)
         {
            Instantiate(_tripleShotPrefab, transform.position, Quaternion.identity);
         }
@@ -111,11 +111,16 @@ public class Player : MonoBehaviour
 
     public void TripleShotActive()
     {
-        //TripleShotActive becomes true
-        //Start the power down coroutine for triple shot
+        _isTripleShotActive = true;
+        StartCoroutine(TripleShotPowerDownRoutine());
     }
 
-    //IEnumerator TripleShotPowerDpwnRoutine
+    IEnumerator TripleShotPowerDownRoutine()
+    {
+        yield return new WaitForSeconds(5.0f);
+        _isTripleShotActive = false;
+         
+    }
     //wait 5 seconds
     //set the triple shot to false
   

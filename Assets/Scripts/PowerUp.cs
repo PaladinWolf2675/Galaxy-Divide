@@ -29,11 +29,18 @@ public class PowerUp : MonoBehaviour
     //Only to be collected by the player (Need tags)
     //on collected destroy this game object
 
-    private void OnTriggerEnter2D(Collider2D other)
+     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             //comunicate with player script
+            //handle to the component I want
+            //assign the handle to the component
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TripleShotActive();
+            }
             Destroy(this.gameObject);
         }
     }
