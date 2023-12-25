@@ -6,16 +6,17 @@ public class PowerUp : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 3f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //ID for powerups
+    //0 = Triple Shot
+    //1 = Speed Boost
+    //2 = Shields
+    [SerializeField]
+    private int powerupID;
 
     // Update is called once per frame
     void Update()
     {
-        //move down at speed of 3 -need variable and serialize field
+        //move down at speed of 3 
         //when we leave screen destroy this game object
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
 
@@ -25,21 +26,21 @@ public class PowerUp : MonoBehaviour
         }
 
     }
-    //OnTriggerCollision
-    //Only to be collected by the player (Need tags)
-    //on collected destroy this game object
 
      void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            //comunicate with player script
-            //handle to the component I want
-            //assign the handle to the component
+           
             Player player = other.transform.GetComponent<Player>();
             if (player != null)
             {
+                //if powerUP is 0
                 player.TripleShotActive();
+                //else if powerUP is 1
+                //activate speed powerUP
+                //else if powerUP is 2 
+                //activate shield powerUP
             }
             Destroy(this.gameObject);
         }
