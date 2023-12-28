@@ -45,6 +45,21 @@ public class PowerUp : MonoBehaviour
                     Debug.Log("Shields Collected");
                 }
                
+              switch (powerupID)
+                {
+                    case 0:
+                        player.TripleShotActive();
+                        break;
+                    case 1:
+                        Debug.Log("Speed Boost Collected");
+                        break;
+                    case 2:
+                        Debug.Log("Shields Collected");
+                        break;
+                    default:
+                        Debug.Log("Default Value");
+                        break;
+                }
             }
             Destroy(this.gameObject);
         }
