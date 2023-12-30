@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
    
     [SerializeField]
     private float _speed = 5f;
+    private float _speedMultiplier = 2;
     [SerializeField]
     private GameObject _laserPrefab;
     [SerializeField]
@@ -18,8 +19,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
     private SpawnManager _spawnManager;
+
+
     [SerializeField]
-   private bool _isTripleShotActive = false;
+    private bool _isSpeedBoostActive = false;
+    private bool _isTripleShotActive = false;
 
     
 
@@ -62,12 +66,12 @@ public class Player : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         Vector3 direction = new Vector3(horizontalInput, verticalInput, 0);
-        
-        
 
-        transform.Translate(direction * _speed * Time.deltaTime);
-
-         // Clamp value in Vector3 will restrict movement on y axis
+        
+        transform.Translate(direction * _speed *  Time.deltaTime); 
+      
+         
+        // Clamp value in Vector3 will restrict movement on y axis
 
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -3.9f, 0), 0);
 
@@ -123,5 +127,19 @@ public class Player : MonoBehaviour
     }
     //wait 5 seconds
     //set the triple shot to false
+
+    public void SpeedBoostActive()
+    {
+        _isSpeedBoostActive = true;
+        _speed *= _speedMultiplier;
+        StartCoroutine(SpeedboostPowerDownRoutine());
+    }
+
+    IEnumerator SpeedboostPowerDownRoutine()
+    {
+        yield return new WaitForSeconds(5.0f);
+        _isSpeedBoostActive = false;
+        _speed /= _speedMultiplier;
+    }
   
 }
