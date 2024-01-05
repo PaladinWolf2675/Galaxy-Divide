@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     private bool _isSpeedBoostActive = false;
     private bool _isTripleShotActive = false;
 
+    //variable reference to shields visualizer GameObject
+
     
 
    
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
         if (_isShieldsActive == true)
         {
             _isShieldsActive = false;
+            //disable visualizer
             return;
         }
         _lives--;
@@ -153,6 +156,7 @@ public class Player : MonoBehaviour
     public void ShieldsActive()
     {
         _isShieldsActive = true;
+        //enable visualizer
     }
   
 }
