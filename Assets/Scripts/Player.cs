@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private bool _isShieldsActive = false;
     private bool _isSpeedBoostActive = false;
     private bool _isTripleShotActive = false;
+    [SerializeField]
+    private GameObject _shieldVisualizer;
 
     //variable reference to shields visualizer GameObject
 
@@ -113,6 +115,7 @@ public class Player : MonoBehaviour
         {
             _isShieldsActive = false;
             //disable visualizer
+            _shieldVisualizer.SetActive(false);
             return;
         }
         _lives--;
@@ -157,6 +160,7 @@ public class Player : MonoBehaviour
     {
         _isShieldsActive = true;
         //enable visualizer
+        _shieldVisualizer.SetActive(true);
     }
   
 }
