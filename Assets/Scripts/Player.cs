@@ -26,8 +26,9 @@ public class Player : MonoBehaviour
     private bool _isTripleShotActive = false;
     [SerializeField]
     private GameObject _shieldVisualizer;
-
-    //variable reference to shields visualizer GameObject
+    [SerializeField]
+    private int _score;
+   
 
     
 
@@ -162,5 +163,13 @@ public class Player : MonoBehaviour
         //enable visualizer
         _shieldVisualizer.SetActive(true);
     }
+
+    //method to add 10 to score
+    public void AddScore()
+    {
+        _score += 10;
+    }
+    //Communicate with the UI to update the score
+
   
 }

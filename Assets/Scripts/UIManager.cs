@@ -5,14 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 
 
+
 public class UIManager : MonoBehaviour
 {
-    //handle to text
     
+    [SerializeField] private TMP_Text _scoreText;
     // Start is called before the first frame update
     void Start()
     {
-        //assign text component to the handle
+        
+        
     }
 
     // Update is called once per frame
