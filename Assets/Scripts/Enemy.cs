@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour
             //Add 10 to score
             if (_player != null)
             {
-                _player.AddScore();
+                _player.AddScore(10);
             }
             Destroy(this.gameObject);
         }
