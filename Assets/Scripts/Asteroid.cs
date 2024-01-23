@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Asteroid : MonoBehaviour
@@ -8,11 +9,10 @@ public class Asteroid : MonoBehaviour
     private float _rotationSpeed = 10f;
     [SerializeField]
     private float _asteroidSpeed = 4f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject _explosionPrefab;
+  
+
 
     // Update is called once per frame
     void Update()
@@ -21,5 +21,19 @@ public class Asteroid : MonoBehaviour
         transform.Rotate(0, 0, _rotationSpeed * Time.deltaTime, Space.Self);
         //move asteriod down on Y axis without rotation effecting movement
         transform.Translate(Vector3.down * _asteroidSpeed * Time.deltaTime, Space.World);
+    }
+
+    //check for LASER collision (trigger)
+    //instantiate explosion at the position of the asteroid (this game object)
+    //destroy the explosion after 3 seconds.
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Laser")
+        {
+            Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+            Destroy(this.gameObject, 0.25f);
+        }
     }
 }
