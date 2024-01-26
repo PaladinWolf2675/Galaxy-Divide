@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shieldVisualizer;
     [SerializeField]
+    private GameObject _rightFlame;
+    [SerializeField]
+    private GameObject _leftFlame;
+    [SerializeField]
     private int _score;
 
     private UIManager _uiManager;
@@ -129,7 +133,18 @@ public class Player : MonoBehaviour
         }
         _lives--;
 
+       
+
         _uiManager.UpdateLives(_lives);
+
+       if (_lives == 2)
+        {
+            _rightFlame.SetActive(true);
+        }
+       else if (_lives == 1)
+        {
+            _leftFlame.SetActive(true);
+        }
 
         if (_lives < 1)
         {
