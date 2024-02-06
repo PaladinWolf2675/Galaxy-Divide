@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-   
+
     [SerializeField]
     private float _speed = 5f;
     private float _speedMultiplier = 2;
@@ -34,7 +34,10 @@ public class Player : MonoBehaviour
     private int _score;
 
     private UIManager _uiManager;
-   
+    [SerializeField]
+    private AudioClip _laserClip;
+    private AudioSource _audioSource;
+    
 
     
 
@@ -44,6 +47,21 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
+        if( _audioSource == null)
+        {
+            Debug.LogError("The AudioSource in the player is NULL!");
+        }
+        else
+        {
+            _audioSource.clip = _laserClip;
+        }
+
+        if (Input.GetKeyDown("space"))
+        {
+            _audioSource.Play();
+        }
+
        
         transform.position = new Vector3(0, 0, 0);
         //find the object Get the component
@@ -117,6 +135,7 @@ public class Player : MonoBehaviour
             Instantiate(_laserPrefab, transform.position + new Vector3(0, 1.05f, 0), Quaternion.identity);
         }
 
+         _audioSource.Play();
     }
 
     public void Damage()
