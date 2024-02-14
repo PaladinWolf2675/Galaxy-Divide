@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour
     private Player _player;
     //handle to animator component
     private Animator _anim;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GameObject.Find("Player").GetComponent<Player>();
+        _audioSource = GetComponent<AudioSource>();
         //add null check for palyer
         if (_player ==  null)
         {
@@ -59,8 +61,9 @@ public class Enemy : MonoBehaviour
             }
             _anim.SetTrigger("OnEnemyDeath");
             _enemySpeed = 0;
-
+            _audioSource.Play();
             Destroy(this.gameObject, 2.8f);
+           
         }
 
         if (other.tag == "Laser")
@@ -74,7 +77,9 @@ public class Enemy : MonoBehaviour
 
             _anim.SetTrigger("OnEnemyDeath");
             _enemySpeed = 0;
+            _audioSource.Play();
             Destroy(this.gameObject, 2.8f);
+            
         }
     }
 }

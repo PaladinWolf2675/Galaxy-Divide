@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private AudioClip _laserClip;
     private AudioSource _audioSource;
-    
+   
 
     
 
@@ -170,6 +170,8 @@ public class Player : MonoBehaviour
            _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
         }
+
+        
     }
 
     public void TripleShotActive()
