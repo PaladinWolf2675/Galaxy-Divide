@@ -135,3 +135,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationSpeed: 10
   _asteroidSpeed: 2.5
+  _explosionPrefab: {fileID: 348147375185355560, guid: f48d14f1d89b91546b09d8dab922658f,
+    type: 3}

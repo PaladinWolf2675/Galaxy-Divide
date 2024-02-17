@@ -9,6 +9,10 @@ public class PowerUp : MonoBehaviour
    
     [SerializeField]//0 = Triple Shot 1 = Speed Boost 2 = Shields
     private int powerupID;
+    [SerializeField]
+    private AudioClip _clip;
+
+ 
 
     // Update is called once per frame
     void Update()
@@ -26,10 +30,14 @@ public class PowerUp : MonoBehaviour
 
      void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.tag == "Player")
         {
            
             Player player = other.transform.GetComponent<Player>();
+
+            AudioSource.PlayClipAtPoint(_clip, transform.position);
+
             if (player != null)
             {  
               switch (powerupID)
@@ -48,6 +56,7 @@ public class PowerUp : MonoBehaviour
                         break;
                 }
             }
+           
             Destroy(this.gameObject);
         }
     }

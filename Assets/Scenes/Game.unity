@@ -1999,11 +1999,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1647084883, guid: 54b1df2d848f4824dbbe4abb3b63df3a, type: 3}
-      propertyPath: _explosionPrefab
-      value: 
-      objectReference: {fileID: 348147375185355560, guid: f48d14f1d89b91546b09d8dab922658f,
-        type: 3}
     - target: {fileID: 1225670820947935423, guid: 54b1df2d848f4824dbbe4abb3b63df3a,
         type: 3}
       propertyPath: m_RootOrder
