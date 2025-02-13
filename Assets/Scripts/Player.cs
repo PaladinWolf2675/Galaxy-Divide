@@ -10,8 +10,20 @@ public class Player : MonoBehaviour
     /// 2. data type - int (whole number 3, -21) float - (Decimal number - 3.25f) bool (true or false value) string (A word or phrase. "Hello World" ) 
     /// 3. every variable needs a name 
     /// 4. optional value
+    /// 
+    /// To extract methods from code. 
+    /// CTRL+R then CTRL+M
+    /// This will create a new method from the selected code 
+    /// 
     /// </summary>
-    public float playerMovementSpeed = 5; 
+    
+    
+   
+
+    [SerializeField]
+    private float _playerMovementSpeed = 5;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +35,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float horizontalInput = Input.GetAxis("Horizontal");
+
         // Time.deltaTime = real world time 1 meter per second
-        transform.Translate(Vector3.right * playerMovementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
+
+        
     }
 }
