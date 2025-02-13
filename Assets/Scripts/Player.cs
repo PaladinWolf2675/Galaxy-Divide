@@ -36,9 +36,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
         // Time.deltaTime = real world time 1 meter per second
         transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.up * verticalInput *  _playerMovementSpeed * Time.deltaTime);
 
         
     }
