@@ -42,11 +42,20 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput *  _playerMovementSpeed * Time.deltaTime);
 
-        //if player position on the y axis is greater than 8
-        //y position = -8
-        //else if y position less than -8
-        //y position = 8
+        //if player position on the y axis is greater than 6
+        //y position = 6
+        //else if y position less than -4
+        //y position = -4
         //this should wrap the player on the y axis
+
+        if(transform.position.y >= 6)
+        {
+            transform.position = new Vector3(transform.position.x, 6, 0);
+        }
+        else if(transform.position.y <= -4)
+        {
+            transform.position = new Vector3(transform.position.x, -4, 0);
+        }
 
         //if player position on the x axis is greater than 11.5
         //x position = -11.5
@@ -54,6 +63,15 @@ public class Player : MonoBehaviour
         //x position = 11.5
         //this should wrap the player on the x axis
         
+
+        if(transform.position.x >= 11.5)
+        {
+            transform.position = new Vector3(-11.5f, transform.position.y, 0);
+        }
+        else if (transform.position.x <= -11.5)
+        {
+            transform.position = new Vector3(11.5f, transform.position.y, 0);
+        }
 
         
     }
