@@ -42,6 +42,19 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput *  _playerMovementSpeed * Time.deltaTime);
 
+        //if player position on the y axis is greater than 8
+        //y position = -8
+        //else if y position less than -8
+        //y position = 8
+        //this should wrap the player on the y axis
+
+        //if player position on the x axis is greater than 11.5
+        //x position = -11.5
+        //else if x position less than -11.5
+        //x position = 11.5
+        //this should wrap the player on the x axis
+        
+
         
     }
 }
