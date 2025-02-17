@@ -35,12 +35,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerMovement();
+
+    }
+
+    private void playerMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
         // Time.deltaTime = real world time 1 meter per second
         transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
-        transform.Translate(Vector3.up * verticalInput *  _playerMovementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.up * verticalInput * _playerMovementSpeed * Time.deltaTime);
 
         //if player position on the y axis is greater than 6
         //y position = 6
@@ -48,11 +54,11 @@ public class Player : MonoBehaviour
         //y position = -4
         //this should wrap the player on the y axis
 
-        if(transform.position.y >= 6)
+        if (transform.position.y >= 6)
         {
             transform.position = new Vector3(transform.position.x, 6, 0);
         }
-        else if(transform.position.y <= -4)
+        else if (transform.position.y <= -4)
         {
             transform.position = new Vector3(transform.position.x, -4, 0);
         }
@@ -62,9 +68,9 @@ public class Player : MonoBehaviour
         //else if x position less than -11.5
         //x position = 11.5
         //this should wrap the player on the x axis
-        
 
-        if(transform.position.x >= 11.5)
+
+        if (transform.position.x >= 11.5)
         {
             transform.position = new Vector3(-11.5f, transform.position.y, 0);
         }
@@ -72,7 +78,5 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(11.5f, transform.position.y, 0);
         }
-
-        
     }
 }
