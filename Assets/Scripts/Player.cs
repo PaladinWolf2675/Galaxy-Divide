@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _playerMovementSpeed = 5;
+    [SerializeField]
+    private GameObject _playerLaserPrefab;
 
     
 
@@ -36,6 +38,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         playerMovement();
+
+        //if space key is pressed 
+        //spawn player laser
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_playerLaserPrefab, transform.position, Quaternion.identity);
+        }
 
     }
 
