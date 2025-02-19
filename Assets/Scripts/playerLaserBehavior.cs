@@ -19,6 +19,14 @@ public class playerLaserBehavior : MonoBehaviour
         
         //translate laser up on the y axis
         transform.Translate(Vector3.up * _laserSpeed * Time.deltaTime );
+
+        //if laser position is greater than 7 on the y axis
+        //destroy this game object
+
+        if(transform.position.y >= 7)
+        {
+            Destroy(this.gameObject);
+        }
         
     }
 }
