@@ -24,7 +24,9 @@ public class Player : MonoBehaviour
     private float _playerMovementSpeed = 5;
     [SerializeField]
     private GameObject _playerLaserPrefab;
-
+    [SerializeField]
+    private float _laserFireRate = 0.5f;
+    private float _canFire = -1f;
     
 
     // Start is called before the first frame update
@@ -42,8 +44,9 @@ public class Player : MonoBehaviour
         //if space key is pressed 
         //spawn player laser
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
+            _canFire = Time.time + _laserFireRate;
             Instantiate(_playerLaserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
         }
 
