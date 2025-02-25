@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    /// <summary>
-    /// To create a variable requires three components with an optional fourth
-    /// 1. public or private reference - If the variable is public, other scripts can communicate with it. If the variable is private, other scripts cannot communicate with it. 
-    /// 2. data type - int (whole number 3, -21) float - (Decimal number - 3.25f) bool (true or false value) string (A word or phrase. "Hello World" ) 
-    /// 3. every variable needs a name 
-    /// 4. optional value
-    /// 
-    /// To extract methods from code. 
-    /// CTRL+R then CTRL+M
-    /// This will create a new method from the selected code 
-    /// 
-    /// </summary>
+    
     
     
    
@@ -44,12 +33,17 @@ public class Player : MonoBehaviour
         //if space key is pressed 
         //spawn player laser
 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        FireLaser();
+
+    }
+
+    private void FireLaser()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
             _canFire = Time.time + _laserFireRate;
             Instantiate(_playerLaserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
         }
-
     }
 
     private void playerMovement()
