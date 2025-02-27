@@ -28,25 +28,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
+        PlayerMovement();
 
-        //if space key is pressed 
-        //spawn player laser
-
-        FireLaser();
+       if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
+        {
+            FireLaser();
+        }
+        
 
     }
 
     private void FireLaser()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
-        {
-            _canFire = Time.time + _laserFireRate;
-            Instantiate(_playerLaserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
-        }
+        _canFire = Time.time + _laserFireRate;
+        Instantiate(_playerLaserPrefab, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
     }
 
-    private void playerMovement()
+    private void PlayerMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
