@@ -6,6 +6,8 @@ public class SpawnManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject _enemyPrefab;
+    [SerializeField]
+    private int _enemySpawnCount = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,9 @@ public class SpawnManager : MonoBehaviour
     // Create a coroutine of type IEnumerator -- Yield Events
     // while loop
     // total enemies = 10 * levelNumber if level is not timed level
+    // if _spawnCount = 0 and player is not dead
+    // player wins 
+    // else game over
     
     IEnumerator SpawnRoutine()
     {
