@@ -94,6 +94,7 @@ public class Player : MonoBehaviour
 
         if (_lives == 0)
         {
+            
             Destroy(this.gameObject);
         }
     }
