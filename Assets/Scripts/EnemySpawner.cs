@@ -1,15 +1,20 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    public GameObject enemyPrefab; // Assign enemy prefab in Inspector
-    public int enemiesPerWave = 3; // Number of enemies in the first wave
-    public float timeBetweenWaves = 5f; // Time delay between waves
-    public float spawnDelay = 0.5f; // Delay between individual spawns
-    [SerializeField]
+    public GameObject enemyPrefab;
+    public int enemiesPerWave = 3;
+    public float timeBetweenWaves = 5f;
+    public float spawnDelay = 0.5f;
+
     private int currentWave = 0;
+    private bool isPlayerAlive = true; // Track if player is alive
+
+    [Header("Player Reference")]
+    public GameObject player; // Assign player in the Inspector
 
     void Start()
     {
@@ -18,11 +23,13 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
-        while (true) // Infinite waves (add stopping condition if needed)
+        while (isPlayerAlive) // Only run waves if player is alive
         {
             yield return new WaitForSeconds(timeBetweenWaves);
-            currentWave++;
 
+            if (!isPlayerAlive) yield break; // Stop if player died
+
+            currentWave++;
             Debug.Log("Starting Wave " + currentWave);
 
             for (int i = 0; i < enemiesPerWave; i++)
@@ -31,21 +38,24 @@ public class EnemySpawner : MonoBehaviour
                 yield return new WaitForSeconds(spawnDelay);
             }
 
-            // Increase enemies per wave for progressive difficulty
             enemiesPerWave += 2;
         }
     }
 
     void SpawnEnemy()
     {
-        if (enemyPrefab == null) return;
+        if (enemyPrefab == null || !isPlayerAlive) return;
 
-        // Generate a random position within the given range
         float randomX = Random.Range(-8f, 8f);
         Vector3 spawnPosition = new Vector3(randomX, 7f, 0f);
 
         Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
         Debug.Log("Enemy Spawned at " + spawnPosition);
+    }
+
+    public void OnPlayerDeath()
+    {
+        isPlayerAlive = false;
+        Debug.Log("Player has died! Stopping enemy waves.");
     }
 }

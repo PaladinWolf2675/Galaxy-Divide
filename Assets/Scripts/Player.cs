@@ -19,11 +19,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _lives = 3;
 
+    private EnemySpawner _enemySpawner;
     // Start is called before the first frame update
     void Start()
     {
         // take the current position = new position (0, 0, 0)
         transform.position = new Vector3(0, 0, 0);
+        _enemySpawner = GameObject.Find("Enemy Spawner").GetComponent<EnemySpawner>();
+        
+        if ( _enemySpawner == null)
+        {
+            Debug.LogError("The Enemy Spawner is NULL.");
+        }
     }
 
     // Update is called once per frame
@@ -94,7 +101,10 @@ public class Player : MonoBehaviour
 
         if (_lives == 0)
         {
+            //Communicate with Enemy Spawner Script
             
+            //Tell to stop spawning
+            _enemySpawner.OnPlayerDeath();
             Destroy(this.gameObject);
         }
     }
