@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b135c35d68d4307a1b69ceb8994cb5, type: 3}
+  m_Name: SF alts
+  m_EditorClassIdentifier: 
+  SourceAsset: {fileID: 2800000, guid: 97a44b0c0035c4c0a9d671d32562cde3, type: 3}
+  Filename: SF-ST_Alt
+  ColorOps:
+  - sampledColor: {r: 0.9960785, g: 0.68235296, b: 0.20392159, a: 0}
+    targetColor: {r: 0.66176474, g: 0.0535251, b: 0.0535251, a: 0}
+    valChanged: 0
+  - sampledColor: {r: 0.9960785, g: 0.9058824, b: 0.3803922, a: 0}
+    targetColor: {r: 0.97794116, g: 0.6502416, b: 0.5752595, a: 0}
+    valChanged: 0
+  - sampledColor: {r: 0, g: 0.6, b: 0.8588236, a: 0}
+    targetColor: {r: 0.83823526, g: 0, b: 0.203, a: 0}
+    valChanged: 0
+  - sampledColor: {r: 0.07058824, g: 0.30588236, b: 0.5372549, a: 0}
+    targetColor: {r: 0.58823526, g: 0.017301053, b: 0.3126119, a: 0}
+    valChanged: 0
+  - sampledColor: {r: 0.14901961, g: 0.16862746, b: 0.26666668, a: 0}
+    targetColor: {r: 0.10168086, g: 0.08190959, b: 0.1102941, a: 1}
+    valChanged: 0
+  - sampledColor: {r: 0.227451, g: 0.26666668, b: 0.40000004, a: 0}
+    targetColor: {r: 0.19427872, g: 0.15246537, b: 0.2205882, a: 0}
+    valChanged: 0
+  - sampledColor: {r: 0.3529412, g: 0.41176474, b: 0.53333336, a: 0}
+    targetColor: {r: 0.23542836, g: 0.18176903, b: 0.30147058, a: 0}
+    valChanged: 1
+  - sampledColor: {r: 0.54509807, g: 0.60784316, b: 0.7058824, a: 0}
+    targetColor: {r: 0.31478935, g: 0.2506488, b: 0.44852942, a: 0}
+    valChanged: 1
+  - sampledColor: {r: 0.75294125, g: 0.7960785, b: 0.86274517, a: 0}
+    targetColor: {r: 0.55852383, g: 0.49470156, b: 0.89705884, a: 0}
+    valChanged: 1
+  - sampledColor: {r: 0.09411766, g: 0.078431375, b: 0.14509805, a: 0}
+    targetColor: {r: 0, g: 0, b: 0, a: 0}
+    valChanged: 1

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b135c35d68d4307a1b69ceb8994cb5, type: 3}
+  m_Name: Thrusters
+  m_EditorClassIdentifier: 
+  SourceAsset: {fileID: 2800000, guid: 927e60e8630fb434991c4fb6d0ee3542, type: 3}
+  Filename: Small Thruster_Alt
+  ColorOps:
+  - sampledColor: {r: 1, g: 1, b: 1, a: 0}
+    targetColor: {r: 1, g: 0.75, b: 0.9724138, a: 0}
+    valChanged: 0
+  - sampledColor: {r: 0.17254902, g: 0.909804, b: 0.9607844, a: 0}
+    targetColor: {r: 0.9485294, g: 0.38359648, b: 0.6295982, a: 0}
+    valChanged: 1
+  - sampledColor: {r: 0, g: 0.6, b: 0.8588236, a: 0}
+    targetColor: {r: 0.875, g: 0.15441176, b: 0.3780425, a: 0}
+    valChanged: 1
+  - sampledColor: {r: 0.07058824, g: 0.30588236, b: 0.5372549, a: 0}
+    targetColor: {r: 0.6838235, g: 0.12067473, b: 0.20223409, a: 0}
+    valChanged: 1
+  - sampledColor: {r: 0.14901961, g: 0.16862746, b: 0.26666668, a: 0}
+    targetColor: {r: 0.3602941, g: 0.052984435, b: 0.098113775, a: 0}
+    valChanged: 1
