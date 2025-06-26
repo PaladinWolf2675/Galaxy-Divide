@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -9,9 +8,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameObject _enemyContainer;
 
-    
-
     private bool _stopSpawning = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +46,11 @@ public class SpawnManager : MonoBehaviour
            //yield wait for 5 seconds
            //stop coroutine if player dies
            //stop coroutine if x number of enemies is defeted
+    }
+
+    public void OnPlayerDeath ()
+    {
+        _stopSpawning = false;
     }
 
 }

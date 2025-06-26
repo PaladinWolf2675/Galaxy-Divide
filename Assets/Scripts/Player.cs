@@ -1,14 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
-    
-    
-   
-
     [SerializeField]
     private float _playerMovementSpeed = 5;
     [SerializeField]
@@ -26,6 +19,7 @@ public class Player : MonoBehaviour
         // take the current position = new position (0, 0, 0)
         transform.position = new Vector3(0, 0, 0);
         _enemySpawner = GameObject.Find("Enemy Spawner").GetComponent<EnemySpawner>();
+        
         
         if ( _enemySpawner == null)
         {
@@ -57,9 +51,14 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
+        //cut to top of code values would stay variables to top
+
         // Time.deltaTime = real world time 1 meter per second
         transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput * _playerMovementSpeed * Time.deltaTime);
+
+        //calling these seperate will double movement if player moves diagonally
+        // vector3 playerMovement = newVector3 (horizontalInput, verticalIput, 0)
 
         //if player position on the y axis is greater than 6
         //y position = 6

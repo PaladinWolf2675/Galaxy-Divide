@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
-{
+{   //change variables to private
     [Header("Enemy Settings")]
     public GameObject enemyPrefab;
     public int enemiesPerWave = 3;
@@ -27,13 +26,14 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(timeBetweenWaves);
 
-            if (!isPlayerAlive) yield break; // Stop if player died
+             
 
             currentWave++;
             Debug.Log("Starting Wave " + currentWave);
 
             for (int i = 0; i < enemiesPerWave; i++)
             {
+                if (!isPlayerAlive) yield break;// Stop if player died
                 SpawnEnemy();
                 yield return new WaitForSeconds(spawnDelay);
             }
