@@ -155,8 +155,11 @@ MonoBehaviour:
   _playerMovementSpeed: 5
   _playerLaserPrefab: {fileID: 5935532613595804655, guid: e975e6782978e31479c94f4b10ea7e86,
     type: 3}
+  _tripleShotPrefab: {fileID: 2315767005558250670, guid: abf16780c2065ed46a5ace5108f46624,
+    type: 3}
   _laserFireRate: 0.15
   _lives: 3
+  _isTripleShotActive: 0
 --- !u!212 &839278015
 SpriteRenderer:
   m_ObjectHideFlags: 0

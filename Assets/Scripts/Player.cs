@@ -2,15 +2,21 @@
 
 public class Player : MonoBehaviour
 {
+
     [SerializeField]
     private float _playerMovementSpeed = 5;
     [SerializeField]
     private GameObject _playerLaserPrefab;
     [SerializeField]
+    private GameObject _tripleShotPrefab;
+    [SerializeField]
     private float _laserFireRate = 0.5f;
     private float _canFire = -1f;
     [SerializeField]
     private int _lives = 3;
+    [SerializeField]
+    private bool _isTripleShotActive = false;
+    
 
     private EnemySpawner _enemySpawner;
     // Start is called before the first frame update
@@ -43,7 +49,19 @@ public class Player : MonoBehaviour
     private void FireLaser()
     {
         _canFire = Time.time + _laserFireRate;
-        Instantiate(_playerLaserPrefab, transform.position + new Vector3(0, 1.12f, 0), Quaternion.identity);
+
+        if (_isTripleShotActive == true)
+        {
+            Instantiate(_tripleShotPrefab, transform.position + new Vector3(-1.01f, 1.07f, 0), Quaternion.identity);
+        }
+        else 
+        {
+            Instantiate(_playerLaserPrefab, transform.position + new Vector3(0, 1.12f, 0), Quaternion.identity);
+        }
+        
+        
+        
+       
     }
 
     private void PlayerMovement()
@@ -51,14 +69,13 @@ public class Player : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        //cut to top of code values would stay variables to top
+        
 
         // Time.deltaTime = real world time 1 meter per second
         transform.Translate(Vector3.right * horizontalInput * _playerMovementSpeed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput * _playerMovementSpeed * Time.deltaTime);
 
-        //calling these seperate will double movement if player moves diagonally
-        // vector3 playerMovement = newVector3 (horizontalInput, verticalIput, 0)
+        
 
         //if player position on the y axis is greater than 6
         //y position = 6
@@ -106,5 +123,7 @@ public class Player : MonoBehaviour
             _enemySpawner.OnPlayerDeath();
             Destroy(this.gameObject);
         }
+
+          
     }
 }
